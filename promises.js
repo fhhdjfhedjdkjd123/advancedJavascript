@@ -11,8 +11,8 @@ function getPosts(){
      document.body.innerHTML = output;
     },1000);
 }
-function createPost(post){
-    return new Promise((resolved,reject)=>{
+async function createPost(post){
+    return await new Promise((resolved,reject)=>{
         setTimeout(()=>{
             posts.push({...post, createdAt:new Date().getTime()});
             const error = false;
@@ -24,8 +24,8 @@ function createPost(post){
         },1000)
     })
 }
-function deletePost(){
-    return new Promise((resolved,reject)=>{
+async function deletePost(){
+    return await new Promise((resolved,reject)=>{
         setTimeout(()=>{
             if(posts.length>0){
                 resolved(posts.pop());
